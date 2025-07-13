@@ -277,6 +277,17 @@
         .btn-lg {
             font-size: 1.1rem;
         }
+
+        /* Hero Section Fix for Sidebar Overlap */
+        #hero {
+            margin-left: 300px; /* Add margin to account for sidebar width */
+        }
+
+        @media (max-width: 1199px) {
+            #hero {
+                margin-left: 0; /* Remove margin on smaller screens when sidebar is collapsed */
+            }
+        }
     </style>
 
     <!-- Add any additional meta tags or links here -->
@@ -351,13 +362,9 @@
       class="d-flex flex-column justify-content-center align-items-center"
     >
       <div class="hero-container" data-aos="fade-in">
-        <h1>HARISHANTH ARUDCHELVAN</h1>
-        <p>
-          I'm
-          <span
-            class="typed"
-            data-typed-items="Engineering student shaping the future at the prestigious University of Peradeniya"
-          ></span>
+        <h1 data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">HARISHANTH ARUDCHELVAN</h1>
+        <p data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+          Computer Engineering Student | Software Developer | Innovation Enthusiast at University of Peradeniya
         </p>
       </div>
     </section>
