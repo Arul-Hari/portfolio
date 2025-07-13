@@ -72,6 +72,110 @@
             background-color: #455668;
             color: #ffffff;
         }
+
+        /* Gallery Styles */
+        #gallery-filters {
+            padding: 0;
+            margin: 0 auto 35px auto;
+            list-style: none;
+            text-align: center;
+            background: #fff;
+            border-radius: 50px;
+            padding: 2px 15px;
+        }
+
+        #gallery-filters li {
+            cursor: pointer;
+            display: inline-block;
+            padding: 10px 15px 8px 15px;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1;
+            text-transform: uppercase;
+            color: #272829;
+            margin-bottom: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        #gallery-filters li:hover,
+        #gallery-filters li.filter-active {
+            color: #007bff;
+        }
+
+        .gallery-item {
+            margin-bottom: 30px;
+        }
+
+        .gallery-wrap {
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            aspect-ratio: 4/3; /* Use aspect ratio instead of fixed height for better content preservation */
+            border-radius: 8px; /* Add rounded corners for better appearance */
+        }
+
+        .gallery-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* This ensures images fill the container while maintaining aspect ratio */
+            object-position: center; /* Center the image to show both top and bottom content */
+            transition: transform 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        .gallery-wrap:hover img {
+            transform: scale(1.05); /* Slight zoom on hover */
+        }
+
+        .gallery-wrap::before {
+            content: "";
+            background: rgba(255, 255, 255, 0.5);
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            transition: all ease-in-out 0.3s;
+            z-index: 2;
+            opacity: 0;
+        }
+
+        .gallery-wrap .gallery-links {
+            opacity: 0;
+            left: 0;
+            right: 0;
+            bottom: -60px;
+            z-index: 3;
+            position: absolute;
+            transition: all ease-in-out 0.3s;
+            display: flex;
+            justify-content: center;
+        }
+
+        .gallery-wrap .gallery-links a {
+            color: #fff;
+            margin: 0 2px;
+            font-size: 28px;
+            display: inline-block;
+            transition: 0.4s;
+        }
+
+        .gallery-wrap .gallery-links a:hover {
+            color: #007bff;
+        }
+
+        .gallery-wrap:hover::before {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 1;
+        }
+
+        .gallery-wrap:hover .gallery-links {
+            opacity: 1;
+            bottom: 15px;
+        }
     </style>
 
     <!-- Add any additional meta tags or links here -->
@@ -121,6 +225,11 @@
             <li>
               <a href="#portfolio" class="nav-link scrollto"
                 ><i class="bx bx-book-content"></i> <span>Portfolio</span></a
+              >
+            </li>
+            <li>
+              <a href="#gallery" class="nav-link scrollto"
+                ><i class="bx bx-image"></i> <span>Gallery</span></a
               >
             </li>
             <li>
@@ -429,7 +538,7 @@
       <section id="portfolio" class="portfolio section-bg">
         <div class="container">
           <div class="section-title">
-            <h2>Portfolio</h2>
+            <h2>Outside Project</h2>
             <h3>The Animated video</h3>
             <p>
               Embark on a heartwarming animated journey with Rohit, a young
@@ -495,6 +604,118 @@
         </div>
       </section>
       <!-- End Portfolio Section -->
+
+      <!-- ======= Gallery Section ======= -->
+      <section id="gallery" class="portfolio">
+        <div class="container">
+          <div class="section-title">
+            <h2>Gallery</h2>
+            <h3>Recent Projects & Screenshots</h3>
+            <p>
+              A collection of my recent work, project screenshots, and memorable moments from my journey as a Computer Engineering student.
+            </p>
+          </div>
+
+          <div class="row" data-aos="fade-up">
+            <div class="col-lg-12 d-flex justify-content-center">
+              <ul id="gallery-filters">
+                <li data-filter="*" class="filter-active">All</li>
+                <li data-filter=".filter-projects">Projects</li>
+                <li data-filter=".filter-screenshots">Screenshots</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row gallery-container" data-aos="fade-up" data-aos-delay="100">
+            
+            <!-- Project Images -->
+            <div class="col-lg-4 col-md-6 gallery-item filter-projects">
+              <div class="gallery-wrap">
+                <img src="assets/img/IMG-20250713-WA0003.jpg" class="img-fluid" alt="Project Image 1">
+                <div class="gallery-links">
+                  <a href="assets/img/IMG-20250713-WA0003.jpg" data-gallery="galleryGallery" class="gallery-lightbox" title="Project Image 1"><i class="bx bx-plus"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 gallery-item filter-projects">
+              <div class="gallery-wrap">
+                <img src="assets/img/IMG-20250713-WA0004.jpg" class="img-fluid" alt="Project Image 2">
+                <div class="gallery-links">
+                  <a href="assets/img/IMG-20250713-WA0004.jpg" data-gallery="galleryGallery" class="gallery-lightbox" title="Project Image 2"><i class="bx bx-plus"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 gallery-item filter-projects">
+              <div class="gallery-wrap">
+                <img src="assets/img/IMG-20250713-WA0005.jpg" class="img-fluid" alt="Project Image 3">
+                <div class="gallery-links">
+                  <a href="assets/img/IMG-20250713-WA0005.jpg" data-gallery="galleryGallery" class="gallery-lightbox" title="Project Image 3"><i class="bx bx-plus"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 gallery-item filter-projects">
+              <div class="gallery-wrap">
+                <img src="assets/img/IMG-20250713-WA0006.jpg" class="img-fluid" alt="Project Image 4">
+                <div class="gallery-links">
+                  <a href="assets/img/IMG-20250713-WA0006.jpg" data-gallery="galleryGallery" class="gallery-lightbox" title="Project Image 4"><i class="bx bx-plus"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Screenshots -->
+            <div class="col-lg-4 col-md-6 gallery-item filter-screenshots">
+              <div class="gallery-wrap">
+                <img src="assets/img/Screenshot 2025-07-13 121548.png" class="img-fluid" alt="Project Screenshot 1">
+                <div class="gallery-links">
+                  <a href="assets/img/Screenshot 2025-07-13 121548.png" data-gallery="galleryGallery" class="gallery-lightbox" title="Project Screenshot 1"><i class="bx bx-plus"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 gallery-item filter-screenshots">
+              <div class="gallery-wrap">
+                <img src="assets/img/Screenshot 2025-07-13 121557.png" class="img-fluid" alt="Project Screenshot 2">
+                <div class="gallery-links">
+                  <a href="assets/img/Screenshot 2025-07-13 121557.png" data-gallery="galleryGallery" class="gallery-lightbox" title="Project Screenshot 2"><i class="bx bx-plus"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 gallery-item filter-screenshots">
+              <div class="gallery-wrap">
+                <img src="assets/img/Screenshot 2025-07-13 121603.png" class="img-fluid" alt="Project Screenshot 3">
+                <div class="gallery-links">
+                  <a href="assets/img/Screenshot 2025-07-13 121603.png" data-gallery="galleryGallery" class="gallery-lightbox" title="Project Screenshot 3"><i class="bx bx-plus"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 gallery-item filter-screenshots">
+              <div class="gallery-wrap">
+                <img src="assets/img/Screenshot 2025-07-13 121609.png" class="img-fluid" alt="Project Screenshot 4">
+                <div class="gallery-links">
+                  <a href="assets/img/Screenshot 2025-07-13 121609.png" data-gallery="galleryGallery" class="gallery-lightbox" title="Project Screenshot 4"><i class="bx bx-plus"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 gallery-item filter-screenshots">
+              <div class="gallery-wrap">
+                <img src="assets/img/Screenshot 2025-07-13 121630.png" class="img-fluid" alt="Project Screenshot 5">
+                <div class="gallery-links">
+                  <a href="assets/img/Screenshot 2025-07-13 121630.png" data-gallery="galleryGallery" class="gallery-lightbox" title="Project Screenshot 5"><i class="bx bx-plus"></i></a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+      <!-- End Gallery Section -->
 
       
       <!-- ======= Contact Section ======= -->
